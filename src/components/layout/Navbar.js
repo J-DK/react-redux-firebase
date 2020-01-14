@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import SignedInLinks from "./SignedInLInks";
+import SignedOutLinks from "./SignedOutLinks";
 
 
 const Navbar = () => {
@@ -9,6 +11,8 @@ const Navbar = () => {
                 <Link to='/' className="brand-logo">
                     Project Planning
                 </Link>
+                <SignedInLinks />
+                <SignedOutLinks />
             </div>
 
         </nav>
