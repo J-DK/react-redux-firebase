@@ -8,16 +8,22 @@ import rootReducer from "./store/reducers/rootReducer";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import {getFirestore, reduxFirestore} from "redux-firestore";
-import firebaseConfig from './config/firebase.config'
+import firebase from './config/firebase.config';
 
-const store = createStore(rootReducer,
+const store = createStore(
+    rootReducer,
     compose(
         applyMiddleware(thunk.withExtraArgument({getFirestore})),
-        reduxFirestore(firebaseConfig)
+        reduxFirestore(firebase)
     )
 );
 
-ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
