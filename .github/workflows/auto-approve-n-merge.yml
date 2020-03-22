@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: hmarr/auto-approve-action@v2.0.0
 #        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        with:
+          github-token: ${{ secrets.GIT_TOKEN }}
   automerge:
     name: Auto merge after successful checks
     needs: autoapprove
